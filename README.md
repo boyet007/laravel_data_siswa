@@ -7,3 +7,6 @@ bikin table siswa :
 
 bikin controller siswa : 
 - php artisan make:controller SiswaController
+
+bikin model siswa : 
+- php artisan make:model Siswa
