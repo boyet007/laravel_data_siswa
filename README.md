@@ -37,3 +37,9 @@ edit edit content :
 
 authentikasi :
 - seting redirect failed login : D:\Latihan\laravel_data_siswa\app\Http\Middleware\Authenticate.php
+
+middleware : setiap request yang datang akan di proses dulu di middleware sebelum dilempar ke controller
+
+langkah-langkah membuat middleware :
+- php artisan make:middleware CheckRole
+- daftarkan middleware di kernel.php

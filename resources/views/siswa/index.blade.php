@@ -77,6 +77,11 @@
                                     aria-describedby="emailHelp" placeholder="Nama Belakang">
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" 
+                                    aria-describedby="emailHelp" placeholder="Email">
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleFormControlSelect1">Pilih Jenis Kelamin</label>
                                 <select class="form-control" name="jenis_kelamin" 
                                     id="exampleFormControlSelect1">

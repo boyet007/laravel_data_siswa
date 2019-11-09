@@ -13,10 +13,21 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = new User;
+        $user->role = 'admin';
         $user->name = 'boyet';
         $user->email = 'boyet007@gmail.com';
         $user->password = bcrypt('123456');
         $user->remember_token = Str::random(60);
         $user->save();
+
+        $user = new User;
+        $user->role = 'user';
+        $user->name = 'wynne';
+        $user->email = 'wynne_zong@gmail.com';
+        $user->password = bcrypt('rahasia');
+        $user->remember_token = Str::random(60);
+        $user->save();
+
+
     }
 }
