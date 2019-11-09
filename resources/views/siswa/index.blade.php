@@ -27,12 +27,16 @@
 
             @foreach($data_siswa as $siswa)
                 <tr>
-                <td>{{ $siswa->nama_depan }}</td>
-                <td>{{ $siswa->nama_belakang }}</td>
-                <td>{{ $siswa->jenis_kelamin }}</td>
-                <td>{{ $siswa->agama }}</td>
-                <td>{{ $siswa->alamat }}</td>
-                <td><a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-small">Edit</td>
+                    <td>{{ $siswa->nama_depan }}</td>
+                    <td>{{ $siswa->nama_belakang }}</td>
+                    <td>{{ $siswa->jenis_kelamin }}</td>
+                    <td>{{ $siswa->agama }}</td>
+                    <td>{{ $siswa->alamat }}</td>
+                    <td>
+                        <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-small">Edit</a>
+                        <a href="/siswa/{{ $siswa->id }}/delete" onclick="return confirm('Yakin mau dihapus ?')" class="btn btn-danger btn-small">Hapus</a>
+                    </td>
+
                 </tr>
             @endforeach
         </table>
