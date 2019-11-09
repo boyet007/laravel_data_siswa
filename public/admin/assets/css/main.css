@@ -1136,7 +1136,8 @@ ul.activity-list > li {
  * PAGE: PROFILE
  ********************/
 .panel-profile {
-  position: relative; }
+  position: relative;
+  min-height: 510px; }
 
 .profile-left {
   padding-left: 0;
