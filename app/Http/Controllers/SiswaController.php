@@ -31,8 +31,15 @@ class SiswaController extends Controller
 
 public function update(Request $request, $id) 
     {
+        //dd($request->all());
         $siswa = Siswa::find($id);
         $siswa->update($request->all());
+        if($request->hasFile('avatar')) {
+            //memindahkan request file avatar ke folder public dengan original name yang kita upload
+            $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+            $siswa->avatar =  $request->file('avatar')->getClientOriginalName();
+            $siswa->save();
+        }
         return redirect('/siswa')->with('sukses', 'Data berhasil diupdate');
     }
 
@@ -40,5 +47,11 @@ public function update(Request $request, $id)
     {
         $siswa = Siswa::destroy($id);
         return redirect('/siswa')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function profile($id)
+    {
+        $siswa = Siswa::find($id);
+        return view('siswa.profile', ['siswa' => $siswa]);
     }
 }
