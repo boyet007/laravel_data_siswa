@@ -33,3 +33,7 @@ edit edit content :
     @endsection
 
 - seteleah diupdate maka hapus section content 1
+
+
+authentikasi :
+- seting redirect failed login : D:\Latihan\laravel_data_siswa\app\Http\Middleware\Authenticate.php

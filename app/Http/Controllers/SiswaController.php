@@ -29,7 +29,7 @@ class SiswaController extends Controller
         return view('siswa/edit', ['siswa' => $siswa]);
     }
 
-    public function update(Request $request, $id) 
+public function update(Request $request, $id) 
     {
         $siswa = Siswa::find($id);
         $siswa->update($request->all());
