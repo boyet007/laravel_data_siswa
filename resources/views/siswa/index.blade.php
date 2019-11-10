@@ -24,6 +24,7 @@
                                             <th>JENIS KELAMIN</th>
                                             <th>AGAMA</th>
                                             <th>ALAMAT</th>
+                                            <th>RATA2 NILAI</th>
                                             <th>AKSI</th>
                                         </tr>
                                     </thead>
@@ -35,6 +36,7 @@
                                             <td>{{ $siswa->jenis_kelamin }}</td>
                                             <td>{{ $siswa->agama }}</td>
                                             <td>{{ $siswa->alamat }}</td>
+                                            <td>{{ $siswa->nilaiRata() }}</td>
                                             <td>
                                                 <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-small">Edit</a>
                                                 <a href="/siswa/{{ $siswa->id }}/delete" onclick="return confirm('Yakin mau dihapus ?')" class="btn btn-danger btn-small">Hapus</a>

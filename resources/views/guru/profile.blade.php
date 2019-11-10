@@ -74,6 +74,4 @@
         </div>
         <!-- END MAIN CONTENT -->
     </div>
-
-  
 @stop

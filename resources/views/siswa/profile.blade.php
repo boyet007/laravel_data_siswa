@@ -38,7 +38,7 @@
                                             {{ $siswa->mapel->count() }} <span>Mata Pelajaran</span>
                                         </div>
                                         <div class="col-md-4 stat-item">
-                                            15 <span>Awards</span>
+                                            {{ $siswa->nilaiRata() }} <span>Rata-rata Nilai</span>
                                         </div>
                                         <div class="col-md-4 stat-item">
                                             2174 <span>Points</span>
@@ -68,9 +68,9 @@
                             Tambah nilai
                         </button>
                         <div class="panel">
-                                <div class="panel-heading">
+                            <div class="panel-heading">
                                     <h3 class="panel-title">Mata Pelajaran</h3>
-                                </div>
+                            </div>
                                 <div class="panel-body">
                                     <table class="table table-striped">
                                         <thead>
