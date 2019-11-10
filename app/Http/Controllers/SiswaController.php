@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Siswa;
 use App\User;
+use App\Mapel;
 use Illuminate\Support\Str;
 
 class SiswaController extends Controller
@@ -88,6 +89,45 @@ public function update(Request $request, $id)
     public function profile($id)
     {
         $siswa = Siswa::find($id);
-        return view('siswa.profile', ['siswa' => $siswa]);
+        $matapelajaran = Mapel::all();
+        //dd($mapel);
+
+        // Menyiapkan data untuk chart
+        $categories = [];
+
+        // Menyiapkan data untuk nilai
+        $data = [];
+
+        foreach($matapelajaran as $mp) {
+            if($siswa->mapel()->wherePivot('mapel_id', $mp->id)->first()) {
+                $categories[] = $mp->nama;
+                //ga pake () jadi collection
+               //pake () jadi query builder
+                $data[] = $siswa->mapel()->wherePivot('mapel_id', $mp->id)->first()->pivot->nilai;
+            }
+        }
+
+         //dd($data);
+        // dd($categories);
+        return view('siswa.profile', [
+            'siswa' => $siswa,
+            'matapelajaran' => $matapelajaran,
+            'categories'=> $categories,
+            'data' => $data
+        ]);
+    }
+
+    public function addnilai(Request $request, $idsiswa) 
+    {
+        //dd($idsiswa);
+       $siswa = Siswa::find($idsiswa);
+       
+       //validasi untuk mata pelajaran yang sudah ada
+       if ($siswa->mapel()->where('mapel_id', $request->mapel)->exists()) {
+           return redirect('siswa/' .$idsiswa . '/profile')->with('error', 'Data mata pelajaran sudah ada');
+        }
+       //menambahkan kedalam pivot table
+       $siswa->mapel()->attach($request->mapel, ['nilai' => $request->nilai]);
+       return redirect('siswa/' .$idsiswa . '/profile')->with('sukses', 'Data nilai berhasil dimasukkan');
     }
 }
