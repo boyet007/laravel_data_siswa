@@ -22,7 +22,19 @@ class SiswaController extends Controller
     public function create(Request $request) 
     {
         // $request->request->add(['user_id' => 2]);
-        // dd($request->all());
+        //dd($request->all());
+
+        //validate
+        $this->validate($request, [
+            'nama_depan'    => 'required|min:5',
+            'nama_belakang' => 'required|min:5',
+            //email harus unique ditable user
+            'email'         => 'required|email|unique:users',
+            'jenis_kelamin' => 'required',
+            'agama'         => 'required',
+            'alamat'        => 'required',
+            'avatar'        => 'mimes:jpeg,png'
+        ]);
 
         //Insert ke table User
         $user = new User;
@@ -36,6 +48,13 @@ class SiswaController extends Controller
         //Insert ke table Siswa
         $request->request->add(['user_id' => $user->id]);
         $siswa = Siswa::create($request->all());
+
+        if($request->hasFile('avatar')) {
+            //memindahkan request file avatar ke folder public dengan original name yang kita upload
+            $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+            $siswa->avatar =  $request->file('avatar')->getClientOriginalName();
+            $siswa->save();
+        }
 
         return redirect('/siswa')->with('sukses', 'Data berhasil di input');
     }
