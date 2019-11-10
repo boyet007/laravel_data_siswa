@@ -130,4 +130,10 @@ public function update(Request $request, $id)
        $siswa->mapel()->attach($request->mapel, ['nilai' => $request->nilai]);
        return redirect('siswa/' .$idsiswa . '/profile')->with('sukses', 'Data nilai berhasil dimasukkan');
     }
+
+    public function deletenilai($idsiswa, $idmapel) {
+        $siswa = Siswa::find($idsiswa);
+        $siswa->mapel()->detach($idmapel);
+        return redirect()->back()->with('sukses', 'Data nilai berhasil dihapus');
+    }
 }
