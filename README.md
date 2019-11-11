@@ -52,6 +52,8 @@ toastr : alert untuk pemberitahuan
 
 Laravel Collective -> untuk pembuatan form -> https://laravelcollective.com/
 
+fungsi slug : untuk mempercantik url serta pencarian google seo
+
 
 
 php artisan tinker

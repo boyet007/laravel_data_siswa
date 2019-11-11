@@ -16,6 +16,10 @@ Route::get('/register', 'SiteController@register');
 Route::post('/postregister', 'SiteController@postregister');
 Route::get('/about', 'SiteController@about');
 
+//uses -> dia mengguankan controler apa
+
+
+
 Route::get('/login',  'AuthController@login')->name('login');
 Route::get('/logout', 'AuthController@logout');
 Route::post('/postlogin', 'AuthController@postlogin');
@@ -33,10 +37,18 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
     Route::get('siswa/exportexcell', 'SiswaController@exportExcell');
     Route::get('siswa/exportpdf', 'SiswaController@exportPdf');
     Route::get('/guru/{guru}/profile', 'GuruController@profile');
+    Route::get('/posts', 'PostController@index');
+
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,user']], function() {
     Route::get('/dashboard', 'DashboardController@index');
 });
 
+
+//slug harus paling bawah supaya site2 lain ga terpanggil sebagai slug
+Route::get('/{slug}', [
+    'uses'  => 'SiteController@singlepost',
+    'as'    => 'site.single.post'
+]);
 

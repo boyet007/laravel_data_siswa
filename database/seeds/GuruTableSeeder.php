@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Guru;
 
 class GuruTableSeeder extends Seeder
 {
@@ -11,16 +12,16 @@ class GuruTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('guru')->insert(array(
-            'nama'      => 'Bpk Yohanes',
-            'telpon'    => '021 920 1921',
-            'alamat'     => 'Bekasi'
-        ));   
+        $guru = new Guru;
+        $guru->nama            = 'Bpk. Sujadmiko';
+        $guru->telpon          = '021 9238 1929';
+        $guru->alamat          = 'Bekasi';
+        $guru->save();
 
-        DB::table('guru')->insert(array(
-            'nama'      => 'Ibu Dwi',
-            'telpon'    => '021 921 1921',
-            'alamat'     => 'Jakarta'
-        ));   
+        $guru = new Guru;
+        $guru->nama            = 'Ibu Cintika';
+        $guru->telpon          = '021 8876 1231';
+        $guru->alamat          = 'Jakarta';
+        $guru->save();
     }
 }

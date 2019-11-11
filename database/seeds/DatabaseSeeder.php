@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GuruTableSeeder::class);
         $this->call(MapelTableSeeder::class);
         $this->call(MapelSiswaTableSeeder::class);
+        $this->call(PostsTableSeeder::class);
     }
 }
