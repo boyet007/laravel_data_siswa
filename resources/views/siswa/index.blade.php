@@ -11,7 +11,10 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Data  Siswa</h3>
                                 <div class="right">
-                                    <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn"><i class="lnr lnr-plus-circle"></i></button>
+                                    <a href="/siswa/exportexcell" class="btn btn-primary btn-small">Export Excell</a>
+                                    <a href="/siswa/exportpdf" class="btn btn-primary btn-small">Export PDF</a>     
+                                    <button type="button" data-toggle="modal" 
+                                        data-target="#exampleModal" class="btn"><i class="lnr lnr-plus-circle"></i></button>
                                 </div>
 
                             </div>

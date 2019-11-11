@@ -29,6 +29,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
     Route::get('/siswa/{id}/profile', 'SiswaController@profile');
     Route::post('/siswa/{id}/addnilai', 'SiswaController@addnilai');
     Route::get('/siswa/{id}/{idmapel}/deletenilai', 'SiswaController@deletenilai');
+    Route::get('siswa/exportexcell', 'SiswaController@exportExcell');
+    Route::get('siswa/exportpdf', 'SiswaController@exportPdf');
     Route::get('/guru/{id}/profile', 'GuruController@profile');
 });
 

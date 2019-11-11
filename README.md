@@ -44,6 +44,10 @@ langkah-langkah membuat middleware :
 - php artisan make:middleware CheckRole
 - daftarkan middleware di kernel.php
 
+Laravel export ke Excel : Maatwebsite
+Laravel export ke PDF : barryvdh/laravel-dompdf
+
+
 
 php artisan tinker
 ===================
