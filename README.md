@@ -50,6 +50,8 @@ Laravel export ke PDF : barryvdh/laravel-dompdf
 SweetAlert : https://sweetalert.js.org/guides/
 toastr : alert untuk pemberitahuan
 
+Laravel Collective -> untuk pembuatan form -> https://laravelcollective.com/
+
 
 
 php artisan tinker
