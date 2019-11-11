@@ -11,7 +11,7 @@
                                 <h3 class="panel-title">Ranking 3 Besar</h3>
                         </div>
                         <div class="panel-body">
-                            <table class="table table-striped">
+                        <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>RANKING</th>
