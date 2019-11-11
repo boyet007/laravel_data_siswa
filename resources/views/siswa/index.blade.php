@@ -42,7 +42,7 @@
                                             <td>{{ $siswa->nilaiRata() }}</td>
                                             <td>
                                                 <a href="/siswa/{{ $siswa->id }}/edit" class="btn btn-warning btn-small">Edit</a>
-                                                <a href="/siswa/{{ $siswa->id }}/delete" onclick="return confirm('Yakin mau dihapus ?')" class="btn btn-danger btn-small">Hapus</a>
+                                            <a href="#" siswa-id="{{ $siswa->id }}" class="btn btn-danger btn-small delete">Hapus</a>
                                             </td>
 
                                         </tr>
@@ -139,6 +139,28 @@
             </div>
         </div>
     </div>  
+@endsection
+
+@section('footer')
+    <script>
+        $('.delete').click(function() {
+            //this mengacu pada tombol class delete
+            var siswa_id = $(this).attr('siswa-id')
+            swal({
+                title: 'Konfirmasi ?',
+                text: 'Mau dihapus data siswa dengan id ' + siswa_id + '?',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true
+            }).then((willDelete) => {
+                if (willDelete) {
+                    //arahkan kemana
+                    window.location = '/siswa/' + siswa_id + '/delete'
+                } 
+            })
+        });
+        
+    </script>
 @endsection
 
 

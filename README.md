@@ -47,6 +47,9 @@ langkah-langkah membuat middleware :
 Laravel export ke Excel : Maatwebsite
 Laravel export ke PDF : barryvdh/laravel-dompdf
 
+SweetAlert : https://sweetalert.js.org/guides/
+toastr : alert untuk pemberitahuan
+
 
 
 php artisan tinker

@@ -23,15 +23,15 @@ Route::post('/postlogin', 'AuthController@postlogin');
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function() {
     Route::get('/siswa', 'SiswaController@index');
     Route::post('/siswa/create', 'SiswaController@create');
-    Route::get('/siswa/{id}/edit', 'SiswaController@edit');
-    Route::post('/siswa/{id}/update', 'SiswaController@update');
-    Route::get('/siswa/{id}/delete', 'SiswaController@delete');
-    Route::get('/siswa/{id}/profile', 'SiswaController@profile');
-    Route::post('/siswa/{id}/addnilai', 'SiswaController@addnilai');
-    Route::get('/siswa/{id}/{idmapel}/deletenilai', 'SiswaController@deletenilai');
+    Route::get('/siswa/{siswa}/edit', 'SiswaController@edit');
+    Route::post('/siswa/{siswa}/update', 'SiswaController@update');
+    Route::get('/siswa/{siswa}/delete', 'SiswaController@delete');
+    Route::get('/siswa/{siswa}/profile', 'SiswaController@profile');
+    Route::post('/siswa/{siswa}/addnilai', 'SiswaController@addnilai');
+    Route::get('/siswa/{siswa}/{idmapel}/deletenilai', 'SiswaController@deletenilai');
     Route::get('siswa/exportexcell', 'SiswaController@exportExcell');
     Route::get('siswa/exportpdf', 'SiswaController@exportPdf');
-    Route::get('/guru/{id}/profile', 'GuruController@profile');
+    Route::get('/guru/{guru}/profile', 'GuruController@profile');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:admin,user']], function() {
