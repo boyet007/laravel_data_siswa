@@ -45,6 +45,11 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,user']], function() {
     Route::get('/dashboard', 'DashboardController@index');
 });
 
+Route::get('getdatasiswa', [
+    'uses' => 'SiswaController@getdatasiswa',
+    'as' => 'ajax.get.data.siswa',
+]);
+
 
 //slug harus paling bawah supaya site2 lain ga terpanggil sebagai slug
 Route::get('/{slug}', [

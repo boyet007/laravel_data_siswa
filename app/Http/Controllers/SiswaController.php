@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Siswa;
 use App\User;
 use App\Mapel;
+use DataTables;
 use Illuminate\Support\Str;
 use App\Exports\SiswaExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -17,9 +18,9 @@ class SiswaController extends Controller
     {
         //dd($request->all());
         if ($request ->has('cari')) {
-            $data_siswa = Siswa::where('nama_depan', 'LIKE', '%' .$request->cari. '%')->paginate(20);
+            $data_siswa = Siswa::where('nama_depan', 'LIKE', '%' .$request->cari. '%')->all();
         } else {
-            $data_siswa = Siswa::paginate(20);
+            $data_siswa = Siswa::all();
         }
         return view('siswa.index', ['data_siswa' => $data_siswa]);
     }
@@ -153,5 +154,23 @@ public function update(Request $request, Siswa $siswa)
         //$pdf = PDF::loadHTML('<h1>DATA SISWA</h1>');
         $pdf = PDF::loadView('export.siswapdf', ['siswa' => $siswa]);
         return $pdf->download('siswa.pdf');
+    }
+
+    public function getdatasiswa() 
+    {
+        $siswa = Siswa::select('siswa.*');
+        
+        // $s untuk setiap row siswa
+        return Datatables::eloquent($siswa)->addColumn('rata2_nilai', function($s) {
+            return $s->nilaiRata();
+        })
+        ->addColumn('nama_lengkap', function($s) {
+            return $s->nama_depan . ' ' . $s->nama_belakang;
+        })
+        ->addColumn('aksi', function($s) {
+            return '<a href="#" class="btn btn-warning btn-small">Edit</a>';
+        })
+        ->rawColumns(['nama_lengkap', 'rata2_nilai', 'aksi']) 
+        ->toJson();
     }
 }
