@@ -168,9 +168,15 @@ public function update(Request $request, Siswa $siswa)
             return $s->nama_depan . ' ' . $s->nama_belakang;
         })
         ->addColumn('aksi', function($s) {
-            return '<a href="#" class="btn btn-warning btn-small">Edit</a>';
+            return '<a href="/siswa/' . $s->id . '/profile" class="btn btn-warning btn-small">Profile</a>';
         })
         ->rawColumns(['nama_lengkap', 'rata2_nilai', 'aksi']) 
         ->toJson();
+    }
+
+    public function profilsaya() 
+    {
+        $siswa = auth()->user()->siswa;
+        return view('siswa.profisaya', compact(['siswa']));
     }
 }

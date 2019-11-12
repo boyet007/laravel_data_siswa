@@ -12,6 +12,16 @@ class SiswaTableSeeder extends Seeder
      */
     public function run()
     {
+        // $siswa = new Siswa;
+        // $siswa->user_id         = 1;
+        // $siswa->nama_depan      = 'Philip';
+        // $siswa->nama_belakang   = 'Loa Pleyto';
+        // $siswa->jenis_kelamin   = 'L';
+        // $siswa->agama           = 'Katolik';
+        // $siswa->alamat          = 'Jl Kresna No. 188';
+        // $siswa->avatar          = 'philip.jpg';
+        // $siswa->save();
+
         $siswa = new Siswa;
         $siswa->user_id         = 2;
         $siswa->nama_depan      = 'Wynne';
@@ -19,6 +29,7 @@ class SiswaTableSeeder extends Seeder
         $siswa->jenis_kelamin   = 'P';
         $siswa->agama           = 'Kristen';
         $siswa->alamat          = 'Jl Keadilan Glodok';
+        $siswa->avatar          = 'wynne.jpg';
         $siswa->save();
 
         $siswa = new Siswa;
@@ -28,6 +39,7 @@ class SiswaTableSeeder extends Seeder
         $siswa->jenis_kelamin   = 'P';
         $siswa->agama           = 'Katolik';
         $siswa->alamat          = 'Jl Harapan Indah ';
+        $siswa->avatar          = 'renny.jpg';
         $siswa->save();
 
         $siswa = new Siswa;
@@ -46,6 +58,7 @@ class SiswaTableSeeder extends Seeder
         $siswa->jenis_kelamin   = 'P';
         $siswa->agama           = 'Kristen';
         $siswa->alamat          = 'Jl Dago Raya Belakang';
+        $siswa->avatar          = 'rita.jpg';
         $siswa->save();
 
         $siswa = new Siswa;
