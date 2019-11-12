@@ -58,6 +58,9 @@ fungsi slug : untuk mempercantik url serta pencarian google seo
 
 - test factory di tinker : factory(App\Siswa::class, 10)->create()
 
+- import excell :
+php artisan make:import $siswaImort
+
 
 
 

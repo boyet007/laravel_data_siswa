@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Imports\SiswaImport;
 use Illuminate\Http\Request;
 use App\Siswa;
 use App\User;
@@ -178,5 +179,11 @@ public function update(Request $request, Siswa $siswa)
     {
         $siswa = auth()->user()->siswa;
         return view('siswa.profisaya', compact(['siswa']));
+    }
+
+    public function importexcel(Request $request)
+    {
+        Excel::import(new SiswaImport, $request->file('data_siswa'));
+        
     }
 }

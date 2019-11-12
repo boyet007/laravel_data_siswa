@@ -11,6 +11,8 @@
                             <div class="panel-heading">
                                 <h3 class="panel-title">Data  Siswa</h3>
                                 <div class="right">
+                                    <a type="button" class="btn btn-primary btn-small" data-toggle="modal"
+                                        data-target="#importSiswa">Import XLS</a>
                                     <a href="/siswa/exportexcell" class="btn btn-primary btn-small">Export Excell</a>
                                     <a href="/siswa/exportpdf" class="btn btn-primary btn-small">Export PDF</a>     
                                     <button type="button" data-toggle="modal" 
@@ -43,7 +45,7 @@
         </div>
     </div>
 
-     <!-- Modal -->
+     <!-- Modal 1 -->
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -124,6 +126,34 @@
             </div>
         </div>
     </div>  
+
+    
+<!-- Modal 2 -->
+<div class="modal fade" id="importSiswa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {!! Form::open(['route' => 'siswa.import', 
+            'class' => 'form-horizontal', 
+            'enctype' => 'multipart/form-data']) !!}
+            
+            <div class="modal-body">
+                    {!! Form::file('data_siswa') !!}
+
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-sm btn-primary" value="Import">
+            
+            </div>
+            {!! Form::close() !!}
+          </div>
+        </div>
+      </div>
 @endsection
 
 @section('footer')
