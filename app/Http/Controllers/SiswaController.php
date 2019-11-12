@@ -17,9 +17,9 @@ class SiswaController extends Controller
     {
         //dd($request->all());
         if ($request ->has('cari')) {
-            $data_siswa = Siswa::where('nama_depan', 'LIKE', '%' .$request->cari. '%')->get();
+            $data_siswa = Siswa::where('nama_depan', 'LIKE', '%' .$request->cari. '%')->paginate(20);
         } else {
-            $data_siswa = Siswa::All();
+            $data_siswa = Siswa::paginate(20);
         }
         return view('siswa.index', ['data_siswa' => $data_siswa]);
     }

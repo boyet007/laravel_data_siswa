@@ -54,6 +54,11 @@ Laravel Collective -> untuk pembuatan form -> https://laravelcollective.com/
 
 fungsi slug : untuk mempercantik url serta pencarian google seo
 
+- datatables : yajra datatables
+
+- test factory di tinker : factory(App\Siswa::class, 10)->create()
+
+
 
 
 php artisan tinker
